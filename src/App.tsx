@@ -1,11 +1,10 @@
-import './App.css';
-import SearchTable from './components/molecules/SearchTable';
+import RocketSearchTable from './components/organisms/RocketSearchFilter';
 
 function App() {
   return (
     <main>
       <section>
-        <SearchTable />
+        <RocketSearchTable />
       </section>
     </main>
   );
