@@ -1,17 +1,26 @@
 import styled from 'styled-components';
 
-export const StyledHeaderRow = styled.div`
+export const StyledHeaderRow = styled.div<{ numHeadColumns: number }>`
   width: 100%;
   display: grid;
-  grid-template-columns: 0.9fr 0.4fr repeat(3, 1fr);
+  grid-template-columns: ${({ numHeadColumns }) =>
+    numHeadColumns > 5
+      ? `repeat(${numHeadColumns}, 1fr)`
+      : `0.9fr 0.4fr repeat(3, 1fr)`};
+  gap: 10px;
+  align-items: center;
 
   padding: 15px 50px 15px 30px;
 `;
 
-export const StyledBodyRow = styled.div`
+export const StyledBodyRow = styled.div<{ numBodyColumns: number }>`
   width: 100%;
   display: grid;
-  grid-template-columns: 0.9fr 0.4fr repeat(3, 1fr);
+  grid-template-columns: ${({ numBodyColumns }) =>
+    numBodyColumns > 5
+      ? `repeat(${numBodyColumns}, 1fr)`
+      : `0.9fr 0.4fr repeat(3, 1fr)`};
+  gap: 10px;
 
   background-color: white;
   padding: 15px 50px 15px 30px;
