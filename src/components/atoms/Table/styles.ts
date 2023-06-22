@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 
-export const StyledHeaderRow = styled.div<{ numHeadColumns: number }>`
+export const StyledTableWrapper = styled.div`
+  overflow: auto;
+`;
+
+export const StyledHeaderRow = styled.div<{ numheadcolumns: number }>`
   width: 100%;
+  min-width: 650px;
   display: grid;
-  grid-template-columns: ${({ numHeadColumns }) =>
-    numHeadColumns > 5
-      ? `repeat(${numHeadColumns}, 1fr)`
+  grid-template-columns: ${({ numheadcolumns }) =>
+    numheadcolumns > 5
+      ? `repeat(${numheadcolumns}, 1fr)`
       : `0.9fr 0.4fr repeat(3, 1fr)`};
   gap: 10px;
   align-items: center;
@@ -13,12 +18,13 @@ export const StyledHeaderRow = styled.div<{ numHeadColumns: number }>`
   padding: 15px 50px 15px 30px;
 `;
 
-export const StyledBodyRow = styled.div<{ numBodyColumns: number }>`
+export const StyledBodyRow = styled.div<{ numbodycolumns: number }>`
   width: 100%;
+  min-width: 650px;
   display: grid;
-  grid-template-columns: ${({ numBodyColumns }) =>
-    numBodyColumns > 5
-      ? `repeat(${numBodyColumns}, 1fr)`
+  grid-template-columns: ${({ numbodycolumns }) =>
+    numbodycolumns > 5
+      ? `repeat(${numbodycolumns}, 1fr)`
       : `0.9fr 0.4fr repeat(3, 1fr)`};
   gap: 10px;
 
@@ -26,6 +32,10 @@ export const StyledBodyRow = styled.div<{ numBodyColumns: number }>`
   padding: 15px 50px 15px 30px;
   border-radius: 8px;
   margin-bottom: 3px;
+
+  &:last-child {
+    margin-bottom: 20px;
+  }
 `;
 
 export const StyledHeaderItem = styled.span`

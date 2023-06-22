@@ -4,6 +4,7 @@ import {
   StyledBodyRow,
   StyledHeaderItem,
   StyledHeaderRow,
+  StyledTableWrapper,
 } from './styles';
 
 interface ITableProps {
@@ -12,25 +13,31 @@ interface ITableProps {
 }
 
 const Table = ({ tableHeadValues, tableData }: ITableProps) => {
+  const sorting = () => {
+    console.log('clicked');
+  };
+
   return (
-    <div>
-      <StyledHeaderRow numHeadColumns={tableHeadValues.length}>
+    <StyledTableWrapper>
+      <StyledHeaderRow numheadcolumns={tableHeadValues.length}>
         {tableHeadValues.map((value, index) => (
-          <StyledHeaderItem key={index}>{value}</StyledHeaderItem>
+          <StyledHeaderItem key={index} onClick={() => sorting()}>
+            {value}
+          </StyledHeaderItem>
         ))}
       </StyledHeaderRow>
       {tableData &&
         tableData.map((item) => (
           <StyledBodyRow
             key={item.id}
-            numBodyColumns={item.valuesToDisplay.length}
+            numbodycolumns={item.valuesToDisplay.length}
           >
             {Object.values(item.valuesToDisplay).map((value, index) => (
               <StyledBodyItem key={index}>{value.toString()}</StyledBodyItem>
             ))}
           </StyledBodyRow>
         ))}
-    </div>
+    </StyledTableWrapper>
   );
 };
 

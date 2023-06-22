@@ -53,10 +53,17 @@ const SearchTable = ({ data }: ISearchTableProps) => {
         />
       </StyledSearchBarWrapper>
       <div>
-        <Table
-          tableHeadValues={tableHeadValues}
-          tableData={tableDataToDisplay}
-        />
+        {tableDataToDisplay.length === 0 ? (
+          <>
+            <Table tableHeadValues={tableHeadValues} />
+            <p>No results found</p>
+          </>
+        ) : (
+          <Table
+            tableHeadValues={tableHeadValues}
+            tableData={tableDataToDisplay}
+          />
+        )}
       </div>
     </StyledSearchTableWrapper>
   );
