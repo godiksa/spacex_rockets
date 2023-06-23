@@ -13,7 +13,7 @@ export const StyledHeaderRow = styled.div<{ numheadcolumns: number }>`
       ? `repeat(${numheadcolumns}, 1fr)`
       : `0.9fr 0.4fr repeat(3, 1fr)`};
   gap: 10px;
-  align-items: center;
+  align-items: baseline;
 
   padding: 15px 50px 15px 30px;
 `;
@@ -27,6 +27,7 @@ export const StyledBodyRow = styled.div<{ numbodycolumns: number }>`
       ? `repeat(${numbodycolumns}, 1fr)`
       : `0.9fr 0.4fr repeat(3, 1fr)`};
   gap: 10px;
+  align-items: center;
 
   background-color: white;
   padding: 15px 50px 15px 30px;
@@ -46,6 +47,11 @@ export const StyledHeaderItem = styled.span`
 
   &:first-child {
     text-align: left;
+  }
+
+  &:hover {
+    cursor: pointer;
+    color: #5a71e4;
   }
 `;
 
